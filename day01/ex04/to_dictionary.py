@@ -23,11 +23,18 @@ def to_dictionary():
         ('Israel', '12')
     ]
     raw_dict = dict(list_of_tuples)
-    new_dict = {v:k for k, v in raw_dict.items()}
 
+    # new_dict = {val : key for key, val in raw_dict.items()} #затрет повторяющиеся значения и сохранит последнее 
+    # for key, val in new_dict.items():
+    #     print("'" + key + "'" + ": " + "'" + val + "'")
 
-    for key, val in new_dict.items():
-        print("'" + key + "'" + ": " + "'" + val + "'")
+    new_dict = {}
+    for key in raw_dict:
+        new_dict.setdefault(raw_dict[key], []).append(key) #сохранит все значения 
+
+    for key, values in new_dict.items():
+        for value in values:
+            print("'" + key + "'" + ": " + "'" + value + "'")
 
 if __name__ == '__main__':
     to_dictionary()

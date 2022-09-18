@@ -25,6 +25,7 @@ def ticker_symbols(ticker_symbol):
         print('Unknown ticker')
     else:
         brand_name = get_key(COMPANIES, ticker_symbol)
+        print('brand name is ' + brand_name)
         print(brand_name + ' ' + str(STOCKS[COMPANIES[brand_name]]))
 
 if __name__ == '__main__':
